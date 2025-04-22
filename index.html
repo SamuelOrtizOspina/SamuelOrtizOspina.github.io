@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Ortiz - Portafolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primario: #2d4059;
+            --color-secundario: #ea5455;
+            --color-terciario: #f8f9fa;
+            --transition-speed: 0.5s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--color-terciario);
+            line-height: 1.6;
+            color: var(--color-primario);
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-secundario) 100%);
+            color: white;
+            padding: 6rem 1rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh; /* Ajusté para asegurar que haya espacio para el scroll */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('fondo-header.jpg'); /* <-- ¡CAMBIA ESTO por la ruta a TU imagen! */
+            background-position: center center; 
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            background-attachment: fixed; 
+            z-index: 0; 
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            border: 4px solid white;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all var(--transition-speed);
+            z-index: 100;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
+
+        .sticky-profile {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            z-index: 1000;
+            transition: all var(--transition-speed);
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 1; /* Visible por defecto sin JavaScript */
+            transform: translateX(0); /* Posicionado por defecto sin JavaScript */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 3rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: relative;
+            transform: translateY(0);
+            transition: transform 0.5s;
+        }
+
+        section:target {
+            transform: translateY(-10px);
+        }
+
+        h2 {
+            color: var(--color-secundario);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.8rem;
+            border-bottom: 2px solid var(--color-secundario);
+        }
+
+        h3 {
+            margin-bottom: 0.5rem;
+            color: var(--color-primario);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .linkedin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: #0A66C2;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .linkedin-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(10, 102, 194, 0.3);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--color-terciario);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content p {
+            flex-grow: 1;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: var(--color-terciario);
+            color: var(--color-primario);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .certification-card {
+            background: var(--color-terciario);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .certification-logo {
+            width: 100%;
+            height: 120px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .certification-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .certification-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .certification-content h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .certification-content p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--color-secundario);
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .cert-link:hover {
+            transform: translateX(3px);
+        }
+
+        .project-content .cert-link {
+            margin-top: 15px;
+            background-color: var(--color-primario);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .project-content .cert-link:hover {
+            background-color: var(--color-secundario);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background: var(--color-primario);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .scroll-indicator i {
+            color: white;
+        }
+
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            text-decoration: none; /* Para que funcione como enlace */
+            display: block; /* Para poder usar padding y margin */
+        }
+
+        .nav-dot.active {
+            background: var(--color-secundario);
+            transform: scale(1.3);
+        }
+
+        .maticeamatista {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+            background-color: var(--color-primario);
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .github-btn:hover {
+            background-color: var(--color-secundario);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .credentials-section {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .credly-badge {
+            max-width: 150px;
+            transition: transform 0.3s;
+            margin: 0 auto;
+        }
+
+        .credly-badge:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilos para las previsualizaciones de certificados */
+        .cert-preview-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cert-preview {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 767px) {
+            .header {
+                padding-top: 4rem;
+                min-height: auto;
+            }
+
+            .profile-container {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-dots {
+                display: none;
+            }
+
+            .certifications-container,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-profile">
+        <img src="miFoto.jpg" alt="Samuel Ortiz" class="profile-img">
+    </div>
+
+
+    <header id="header" class="header">
+        <div class="header-background"></div>
+        <div class="header-content">
+            <div class="profile-container">
+                <img src="miFoto.jpg" alt="Samuel Ortiz" class="profile-img">
+            </div>
+            <h1>Samuel Ortiz Ospina</h1>
+            <p>Estudiante de Ingeniería de Software</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>305 432 4725</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>samuelortizospina05@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bogotá D.C, Colombia</span>
+                </div>
+                <a href="https://www.linkedin.com/in/samuel-ortiz-ospina-30a004206/"
+                    class="linkedin-link"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="sobre-mi" class="section">
+        <h2>Sobre Mí</h2>
+        <p>Estudiante de quinto semestre en Ingeniería de Software con un enfoque en el desarrollo web y de aplicaciones. Poseo conocimientos sólidos en lenguajes como Java y Python, junto con experiencia en frameworks como Django y FastAPI. También tengo familiaridad con servidores de aplicaciones como Tomcat. Mi objetivo es aplicar mis habilidades técnicas para crear soluciones de software innovadoras y eficientes.</p>
+    </section>
+
+    <section id="educacion" class="section">
+        <h2>Educación</h2>
+        <h3>Universidad Manuela Beltrán</h3>
+        <p>Ingeniería de Software - 5to Semestre</p>
+        <ul>
+            <li>Dominio de Java y Python</li>
+            <li>Experiencia con Django y FastAPI</li>
+            <li>Conocimientos en servidores como Tomcat</li>
+            <li>Análisis de datos</li>
+        </ul>
+    </section>
+
+    <section id="experiencia" class="section">
+        <h2>Experiencia Laboral</h2>
+        <h3>Thura Distribuciones SAS</h3>
+        <p>Asistente Administrativo | Jun 2023 - Dic 2023</p>
+        <ul>
+            <li>Gestión de inventarios</li>
+            <li>Atención al cliente</li>
+            <li>Control de calidad</li>
+        </ul>
+    </section>
+
+    <section id="habilidades" class="section">
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills-container">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Tomcat</span>
+            <span class="skill-tag">Análisis de Datos</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">UX/UI Design</span>
+        </div>
+    </section>
+
+       <section id="certificaciones" class="section">
+        <h2>Certificaciones</h2>
+
+        <div class="credentials-section">
+            <a href="https://www.credly.com/badges/86c30b63-a730-4b92-b825-91cfd70e2ffe/public_url" target="_blank" rel="noopener noreferrer">
+                <img src="b.PNG" alt="Insignia Credly" class="credly-badge">
+            </a>
+            <p><small>Verificación de credenciales</small></p>
+        </div>
+
+        <div class="certifications-container">
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/bb89418d19dd655c12a3f5ff28c7b85f" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Machine Learning" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Machine Learning Specialization</h4>
+                    <p>Stanford University & DeepLearning.AI</p>
+                    <a href="https://coursera.org/share/bb89418d19dd655c12a3f5ff28c7b85f" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/5a24c09fa2fd7bd3b0447c64247b3015" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Python for Data Science" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Python for Data Science, AI & Development</h4>
+                    <p>IBM</p>
+                    <a href="https://coursera.org/share/5a24c09fa2fd7bd3b0447c64247b3015" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/170c7d9d5a2a9393f4683ede346c8fd4" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado UX Design Fundamentals" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>UX Design Fundamentals</h4>
+                    <p>California Institute of the Arts</p>
+                    <a href="https://coursera.org/share/170c7d9d5a2a9393f4683ede346c8fd4" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/268e4d50c7406267144b4d3dfc5abecc" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Databases and SQL" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Databases and SQL for Data Science</h4>
+                    <p>IBM</p>
+                    <a href="https://coursera.org/share/268e4d50c7406267144b4d3dfc5abecc" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/9391d05a2e70e81d1b7f468655d28a3e" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Version Control with Git" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Version Control with Git</h4>
+                    <p>Atlassian</p>
+                    <a href="https://coursera.org/share/9391d05a2e70e81d1b7f468655d28a3e" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/ef206733cecec818585737d17e58373a" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Web Design for Everybody" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Web Design for Everybody</h4>
+                    <p>University of Michigan</p>
+                    <a href="https://coursera.org/share/ef206733cecec818585737d17e58373a" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/ce1adb6a5b27dc252a23541920f095b7" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Intro to Software Engineering" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Introduction to Software Engineering</h4>
+                    <p>IBM</p>
+                    <a href="https://coursera.org/share/ce1adb6a5b27dc252a23541920f095b7" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/b87308aacd4ddeb4036ed4cfec514a3b" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Data Structures & Algorithms" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Data Structures & Algorithms</h4>
+                    <p>University of California San Diego</p>
+                    <a href="https://coursera.org/share/b87308aacd4ddeb4036ed4cfec514a3b" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/f5ff9cc6e1cd501844532af15fc18aff" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Agile Project Management" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Agile Project Management</h4>
+                    <p>Google</p>
+                    <a href="https://coursera.org/share/f5ff9cc6e1cd501844532af15fc18aff" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <a href="https://coursera.org/share/711906d4107620d2028bdfe2bf54b7c1" target="_blank" rel="noopener noreferrer" class="cert-preview-container">
+                        <img src="a.PNG" alt="Certificado Full-Stack Web Development" class="cert-preview">
+                    </a>
+                </div>
+                <div class="certification-content">
+                    <h4>Full-Stack Web Development</h4>
+                    <p>The Hong Kong University of Science and Technology</p>
+                    <a href="https://coursera.org/share/711906d4107620d2028bdfe2bf54b7c1" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        Ver certificado <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="section">
+        <h2>Proyectos</h2>
+        <p>Puedes explorar todos mis proyectos en mi
+            <a href="https://github.com/maticeamatista" target="_blank" rel="noopener noreferrer" class="cert-link">
+                GitHub <i class="fab fa-github"></i>
+            </a>
+        </p>
+        <div class="projects">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Álbum Web</h3>
+                    <p>Aplicación web interactiva desarrollada con Python y Django para la gestión y visualización de colecciones de fotografías. Permite a los usuarios organizar sus imágenes en álbumes, añadir descripciones y compartirlas fácilmente.</p>
+                    <div class="skills-container">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/maticeamatista/Ingeniera-web-" target="_blank" rel="noopener noreferrer" class="github-btn">
+                        Ver en GitHub <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Simulación de Redes</h3>
+                    <p>Diseño de redes utilizando Cisco Packet Tracer para comprender la configuración y el funcionamiento de diferentes topologías de red.</p>
+                    <div class="skills-container">
+                        <span class="skill-tag">Networking</span>
+                        <span class="skill-tag">Cisco Packet Tracer</span>
+                    </div>
+                    <a href="https://github.com/maticeamatista/network-simulation" target="_blank" rel="noopener noreferrer" class="github-btn">
+                        Ver en GitHub <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Sistema de Monitoreo Ambiental</h3>
+                    <p>Desarrollo de un sistema para recolectar datos ambientales utilizando sensores.</p>
+                    <div class="skills-container">
+                        <span class="skill-tag">Sensores</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                    <a href="https://github.com/maticeamatista/arduino-monitoring" target="_blank" rel="noopener noreferrer" class="github-btn">
+                        Ver en GitHub <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Samuel Ortiz Ospina</p>
+    </footer>
+</body>
+</html>
