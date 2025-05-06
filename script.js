@@ -4,35 +4,37 @@ document.addEventListener('DOMContentLoaded', () => {
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: ['#00e5ff', '#ff00aa', '#ffcc00'] },
+                color: { value: '#ffffff' },
                 shape: { type: 'circle', stroke: { width: 0, color: '#000000' } },
                 opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-                size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
-                line_linked: { enable: true, distance: 150, color: '#00e5ff', opacity: 0.4, width: 1 },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: 'none',
-                    random: true,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                    attract: { enable: false, rotateX: 600, rotateY: 1200 }
-                }
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 4, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
             },
             interactivity: {
                 detect_on: 'canvas',
                 events: {
-                    onhover: { enable: true, mode: 'grab' },
+                    onhover: { enable: true, mode: 'repulse' },
                     onclick: { enable: true, mode: 'push' },
                     resize: true
                 },
                 modes: {
-                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    repulse: { distance: 120, duration: 0.4 },
                     push: { particles_nb: 4 }
                 }
             },
             retina_detect: true
+        });
+    }
+
+    // Initialize AOS
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 600,
+            offset: 100,
+            easing: 'ease-in-out',
+            delay: 0,
+            once: true
         });
     }
 
@@ -133,28 +135,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    });
-
-    // Scroll animation for elements
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('[data-aos]');
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            if (elementPosition < windowHeight * 0.85) {
-                element.classList.add('aos-animate');
-            }
-        });
-    };
-
-    animateOnScroll();
-    window.addEventListener('scroll', animateOnScroll);
-
-    // AOS initialization
-    const elements = document.querySelectorAll('[data-aos]');
-    elements.forEach(element => {
-        const delay = element.getAttribute('data-aos-delay') || 0;
-        element.style.transitionDelay = `${delay}ms`;
-        element.classList.add('aos-init');
     });
 });
