@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle', stroke: { width: 0, color: '#000000' } },
+                color: { value: '#00e5ff' },
+                shape: { type: 'circle', stroke: { width: 0, color: '#ff00aa' } },
                 opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
                 size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
-                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+                line_linked: { enable: true, distance: 150, color: '#00e5ff', opacity: 0.4, width: 1 },
                 move: { enable: true, speed: 4, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
             },
             interactivity: {
@@ -24,17 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             },
             retina_detect: true
-        });
-    }
-
-    // Initialize AOS
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 600,
-            offset: 100,
-            easing: 'ease-in-out',
-            delay: 0,
-            once: true
         });
     }
 
@@ -67,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         header.classList.toggle('scrolled', window.scrollY > 50);
         backToTop.classList.toggle('active', window.scrollY > 50);
         updateActiveLink();
+        animateOnScroll();
+        checkScroll();
     });
 
     // Update active navigation link
@@ -90,12 +81,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Skill bars animation
-    const skillBars = document.querySelectorAll('.skill-progress');
-    skillBars.forEach(bar => {
-        const width = bar.parentElement.previousElementSibling.lastElementChild.textContent;
-        bar.style.setProperty('--width', width);
-    });
+    // Animate elements on scroll (excluding hero, about, and skills)
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.timeline-item, .project-card, .certification-card, .contact-form, .contact-info, .section-header, .timeline-content, .project-content, .certification-content, .contact-form h3, .contact-info h3');
+
+        elements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (rect.top >= 0 && rect.top < windowHeight * 0.75) {
+                element.classList.add('fade-in');
+                if (element.closest('.timeline-item')) element.classList.add('delay-1');
+                if (element.closest('.project-card')) element.classList.add('delay-2');
+                if (element.closest('.certification-card')) element.classList.add('delay-3');
+                if (element.closest('.contact-form') || element.closest('.contact-info')) element.classList.add('delay-4');
+            }
+        });
+    }
+
+    // Animate skills progress bars
+    const skillItems = document.querySelectorAll('.skill-item');
+    let skillsAnimated = false;
+
+    function animateSkills() {
+        if (skillsAnimated) return; // Prevent re-animation
+        skillsAnimated = true;
+
+        skillItems.forEach(item => {
+            const progress = item.querySelector('.skill-progress');
+            const percent = item.getAttribute('data-percent');
+            progress.style.width = percent + '%';
+        });
+    }
+
+    // Check if skills section is in viewport to trigger animation
+    function checkScroll() {
+        const skillsSection = document.querySelector('#skills');
+        const windowHeight = window.innerHeight;
+        const skillsPosition = skillsSection.getBoundingClientRect().top;
+
+        if (skillsPosition < windowHeight - 100) {
+            animateSkills();
+        }
+    }
 
     // Contact form handling
     const contactForm = document.getElementById('contactForm');
@@ -136,4 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Initial animation call
+    animateOnScroll();
 });

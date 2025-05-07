@@ -30,7 +30,7 @@ html {
 }
 
 body {
-    font-family: var(--font-primary);
+    font-family: var(--font-primary), sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-white);
     line-height: 1.6;
@@ -70,6 +70,23 @@ section {
     left: 0;
     z-index: -1;
 }
+
+/* Animaciones CSS solo para elementos específicos */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
 
 .btn {
     display: inline-flex;
@@ -231,6 +248,18 @@ header .container {
     transition: all 0.3s ease;
 }
 
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -288,6 +317,10 @@ header .container {
 .contact-item i {
     color: var(--primary-color);
     margin-right: 10px;
+}
+
+.contact-item span {
+    visibility: visible;
 }
 
 .hero-buttons {
@@ -387,16 +420,16 @@ header .container {
     margin-bottom: 20px;
 }
 
+.about-text p {
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
 .about-text h4 {
     font-size: 20px;
     font-weight: 600;
     margin: 30px 0 15px;
     color: var(--primary-color);
-}
-
-.about-text p {
-    color: var(--text-gray);
-    margin-bottom: 20px;
 }
 
 .about-features {
@@ -491,13 +524,7 @@ header .container {
     height: 100%;
     background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
     border-radius: 10px;
-    animation: skillProgress 1.5s ease-in-out forwards;
-}
-
-@keyframes skillProgress {
-    to {
-        width: var(--width);
-    }
+    transition: width 1.5s ease-in-out;
 }
 
 .tech-stack {
@@ -627,12 +654,12 @@ header .container {
     border-radius: var(--card-border-radius);
     overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2);
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2);
+    box-shadow: 0 15px 25px rgba(0, 229, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .project-image {
@@ -778,6 +805,14 @@ header .container {
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.certification-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
 .certification-card:hover {
@@ -798,14 +833,14 @@ header .container {
     border-radius: 8px;
 }
 
-.cert-preview {
+.cert-preview-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.cert-preview-container:hover .cert-preview {
+.cert-preview-container:hover img {
     transform: scale(1.1);
 }
 
@@ -886,7 +921,7 @@ header .container {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     color: var(--text-white);
-    font-family: var(--font-primary);
+    font-family: var(--font-primary), sans-serif;
     font-size: 15px;
     transition: all 0.3s ease;
 }
@@ -958,17 +993,13 @@ footer {
     font-weight: 700;
 }
 
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
+footer nav a {
+    margin-left: 20px;
     color: var(--text-gray);
     transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
+footer nav a:hover {
     color: var(--primary-color);
 }
 
@@ -1011,6 +1042,13 @@ footer p {
     0% { opacity: 0.2; transform: scale(1); }
     50% { opacity: 0.4; transform: scale(1.05); }
     100% { opacity: 0.2; transform: scale(1); }
+}
+
+/* Animaciones específicas para secciones */
+.timeline-item, .project-card, .contact-form, .contact-info, .section-header, .timeline-content, .project-content, .contact-form h3, .contact-info h3 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 @media (max-width: 992px) {
@@ -1072,15 +1110,6 @@ footer p {
     }
     .hamburger {
         display: flex;
-    }
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
     }
     .form-row {
         grid-template-columns: 1fr;
