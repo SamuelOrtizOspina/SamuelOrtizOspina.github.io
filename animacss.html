@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Animación CSS</title>
+  <style>
+    .caja {
+      width: 100px;
+      height: 100px;
+      background-color: coral;
+      animation: mover 2s infinite alternate;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(200px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="caja"></div>
+</body>
+</html>

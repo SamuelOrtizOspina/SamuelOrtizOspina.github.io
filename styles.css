@@ -525,7 +525,14 @@ header .container {
     background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
     border-radius: 10px;
     transition: width 1.5s ease-in-out;
+    width: 0;
 }
+
+/* Clases dinámicas para los porcentajes de las barras de habilidades */
+.skill-progress[data-percent="90"] { width: 90%; }
+.skill-progress[data-percent="85"] { width: 85%; }
+.skill-progress[data-percent="80"] { width: 80%; }
+.skill-progress[data-percent="75"] { width: 75%; }
 
 .tech-stack {
     display: flex;
