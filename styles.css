@@ -1146,3 +1146,81 @@ footer p {
         justify-content: center;
     }
 }
+
+
+
+/* Estilos base para ambos banners */
+.banner {
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.banner .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.banner-content h3 {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.banner-content p {
+  font-size: 16px;
+  margin: 0;
+  color: #666;
+}
+
+.banner-content .btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.banner-content .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos específicos para el primer banner (#banner-victor) */
+#banner-victor {
+  background-color: #e9ecef; /* Fondo claro grisáceo */
+}
+
+/* Estilos específicos para el segundo banner (#banner-portafolio) */
+#banner-portafolio {
+  background-color: #dee2e6; /* Fondo ligeramente más oscuro */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .banner {
+    padding: 30px 0;
+  }
+
+  .banner-content h3 {
+    font-size: 20px;
+  }
+
+  .banner-content p {
+    font-size: 14px;
+  }
+
+  .banner-content .btn-primary {
+    padding: 8px 15px;
+  }
+}
