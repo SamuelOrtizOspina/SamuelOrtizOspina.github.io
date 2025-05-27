@@ -1,0 +1,270 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: #1c0a0a;
+}
+
+header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: Troubleside, Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem;
+  background: transparent;
+  height: 100vh;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+main.visible {
+  opacity: 1;
+}
+
+article p {
+  margin: 1ch;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+}
+
+article a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+article a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #FFFFFF;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+@layer base, tokens, animations, components, utilities;
+
+@layer tokens {
+  @font-face {
+    font-family: Troubleside;
+    src: url("https://cdn.jsdelivr.net/gh/chytanka/chytanka.github.io/src/assets/fonts/Troubleside.ttf");
+    font-display: swap;
+  }
+
+  :root {
+    --ratio: 257 / 364;
+    --t: 0.133333334s;
+    --min-card-width: 240px;
+    --accent: #FFFFFF;
+    --text: #FFFFFF;
+    --radius: 0.5rem;
+    color: var(--text);
+    font-size: clamp(0.875rem, 0.8214285714rem + 0.2380952381vw, 1rem);
+    line-height: 1.3;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --accent: #FFFFFF;
+      --text: #FFFFFF;
+    }
+  }
+
+  @property --item-scale {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+  }
+
+  @property --item-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0deg;
+  }
+}
+
+@layer animations {
+  @keyframes shrink-top {
+    0% {
+      --item-scale: 0.5;
+      --item-angle: -60deg;
+      transform-origin: top;
+    }
+  }
+
+  @keyframes shrink-bottom {
+    0% {
+      --item-scale: 0.5;
+      --item-angle: 60deg;
+      transform-origin: bottom;
+    }
+  }
+}
+
+@layer base {
+  body,
+  figure {
+    margin: 0;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    aspect-ratio: var(--ratio);
+    background: transparent;
+    border-radius: var(--radius);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  h1, h2 {
+    color: #FFFFFF;
+    font-family: Troubleside, Arial, sans-serif;
+    margin: 1rem 0 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+    position: relative;
+    perspective: 4000px;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr));
+  }
+
+  section header {
+    grid-column: 1 / -1;
+  }
+
+  article {
+    --deg: 0.8deg;
+    --y: 0;
+    background: transparent;
+    opacity: min(var(--item-scale), 0.8);
+    transform: rotate(var(--deg)) translateY(var(--y)) scale(var(--item-scale)) rotateX(var(--item-angle));
+    transition: all var(--t) ease-in-out;
+    will-change: transform;
+    transform-style: preserve-3d;
+  }
+
+  article:hover {
+    --deg: 0 !important;
+    --y: -1.25ch;
+    opacity: 1;
+  }
+
+  @supports (animation-timeline: view()) {
+    article {
+      animation: shrink-top both ease-in-out, shrink-bottom both ease-in-out reverse;
+      animation-timeline: view(block);
+      animation-range: entry, exit;
+    }
+  }
+
+  figure .image-placeholder {
+    aspect-ratio: var(--ratio);
+  }
+
+  figure img {
+    aspect-ratio: var(--ratio);
+    object-fit: cover;
+    border-radius: calc(var(--radius) - 0.25rem);
+  }
+
+  figure figcaption {
+    font-family: Troubleside, Arial, sans-serif;
+    margin: 1ch;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    word-break: break-word;
+    line-height: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+  }
+
+  .portfolio-item .portfolio-link {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    border: 2px solid #FFFFFF;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .portfolio-item .portfolio-link:hover {
+    background-color: #FFFFFF;
+    color: #1c0a0a;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  article:nth-child(2n) { --deg: -0.8deg; }
+  article:nth-child(2n + 1) { --deg: -0.6deg; }
+  article:nth-child(3n) { --deg: 0.6deg; }
+  article:nth-child(4n + 2) { --deg: -0.75deg; }
+  article:nth-child(5n) { --deg: 0.25deg; }
+  article:nth-child(6n + 3) { --deg: -0.3deg; }
+  article:nth-child(7n) { --deg: 0.9deg; }
+}
