@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página No Encontrada | Samuel Ortiz Ospina</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+        }
+        .error-content h1 {
+            font-size: 120px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .error-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+        .error-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        .error-btn {
+            padding: 12px 28px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            color: var(--text-white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .error-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-content">
+            <h1>404</h1>
+            <h2>¡Oops! Página No Encontrada</h2>
+            <p>Lo siento, la página que buscas no existe o ha sido movida. Regresa a la página principal para continuar explorando.</p>
+            <a href="/" class="error-btn">Volver al Inicio <i class="fas fa-home"></i></a>
+        </div>
+    </div>
+</body>
+</html>
