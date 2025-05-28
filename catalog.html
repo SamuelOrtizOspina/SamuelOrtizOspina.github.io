@@ -41,7 +41,7 @@
   
   <!-- External Libraries -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="assets/css/catalog.css">
+  <link rel="stylesheet" href="assets/css/catalog.css"> <!-- Ruta corregida -->
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -138,7 +138,7 @@
           <div class="swiper-wrapper">
             <!-- Los slides se generan dinámicamente -->
           </div>
-          <div class="swiper-pagination" aria-hidden="true"></div> <!-- Corregido: aria-hidden="true" si es decorativo -->
+          <div class="swiper-pagination" aria-label="Navegación del carrusel"></div>
           <button id="swiper-next-btn" class="swiper-button-next" aria-label="Siguiente producto destacado"></button>
           <button id="swiper-prev-btn" class="swiper-button-prev" aria-label="Producto destacado anterior"></button>
         </div>
@@ -165,8 +165,9 @@
                 placeholder="Buscar productos, marcas o categorías..."
                 aria-label="Buscar productos"
                 autocomplete="off"
+                role="searchbox"
                 spellcheck="false"
-                autocapitalize="none"  <!-- Corregido: Eliminado role="searchbox" -->
+                autocapitalize="none"
               >
               <!-- Botón de limpiar búsqueda nativo -->
               <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="Limpiar búsqueda" hidden>
@@ -195,40 +196,38 @@
 
             <!-- Filtro de precio con range slider HTML5 -->
             <div class="filter-group">
-              <fieldset>
-                <legend class="filter-label">Precio: <span id="price-display">$0 - $3000</span></legend>
-                <div class="price-range-container">
-                  <label for="price-min" class="sr-only">Precio Mínimo</label>
-                  <input 
-                    type="range" 
-                    id="price-min" 
-                    name="priceMin"
-                    min="0" 
-                    max="3000" 
-                    value="0" 
-                    step="25"
-                    class="price-slider"
-                    aria-label="Precio mínimo"
-                  >
-                  <label for="price-max" class="sr-only">Precio Máximo</label>
-                  <input 
-                    type="range" 
-                    id="price-max" 
-                    name="priceMax"
-                    min="0" 
-                    max="3000" 
-                    value="3000" 
-                    step="25"
-                    class="price-slider"
-                    aria-label="Precio máximo"
-                  >
-                </div>
-                <div class="price-inputs">
-                  <input type="number" id="price-min-input" min="0" max="3000" value="0" placeholder="Min">
-                  <span>-</span>
-                  <input type="number" id="price-max-input" min="0" max="3000" value="3000" placeholder="Max">
-                </div>
-              </fieldset>
+              <label for="price-range" class="filter-label">
+                Precio: <span id="price-display">$0 - $3000</span>
+              </label>
+              <div class="price-range-container">
+                <input 
+                  type="range" 
+                  id="price-min" 
+                  name="priceMin"
+                  min="0" 
+                  max="3000" 
+                  value="0" 
+                  step="25"
+                  class="price-slider"
+                  aria-label="Precio mínimo"
+                >
+                <input 
+                  type="range" 
+                  id="price-max" 
+                  name="priceMax"
+                  min="0" 
+                  max="3000" 
+                  value="3000" 
+                  step="25"
+                  class="price-slider"
+                  aria-label="Precio máximo"
+                >
+              </div>
+              <div class="price-inputs">
+                <input type="number" id="price-min-input" min="0" max="3000" value="0" placeholder="Min">
+                <span>-</span>
+                <input type="number" id="price-max-input" min="0" max="3000" value="3000" placeholder="Max">
+              </div>
             </div>
 
             <div class="filter-group">
@@ -369,6 +368,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="assets/js/catalog.js"></script>
+  <script src="assets/js/catalog.js"></script> <!-- Ruta corregida -->
 </body>
 </html>
