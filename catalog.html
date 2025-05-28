@@ -3,909 +3,468 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noticias de Tecnología en Colombia</title>
-  <meta name="description" content="Últimas noticias de tecnología en Colombia: innovación, gadgets y reseñas con un toque de sakura.">
-  <meta name="keywords" content="tecnología Colombia, noticias tecnología, gadgets, reseñas, innovación, sakura blog">
-  <meta name="author" content="Samuel Ortiz Ospina">
+  
+  <!-- SEO Meta Tags -->
+  <title>Catálogo Profesional de Productos | Descubre las Mejores Marcas</title>
+  <meta name="description" content="Explora nuestro catálogo profesional con productos excepcionales de marcas líderes. Encuentra electrónicos, moda, hogar y más con los mejores precios.">
+  <meta name="keywords" content="catálogo productos, tienda online, electrónicos, moda, hogar, mejores precios, marcas líderes">
+  <meta name="author" content="Catálogo Profesional">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://samuelortizospina.me/catalog">
+  
   <!-- Open Graph Tags -->
-  <meta property="og:title" content="Noticias de Tecnología en Colombia">
-  <meta property="og:description" content="Explora las últimas noticias tecnológicas en Colombia con un diseño inspirado en sakura.">
-  <meta property="og:image" content="https://samuelortizospina.me/logo.png">
+  <meta property="og:title" content="Catálogo Profesional de Productos">
+  <meta property="og:description" content="Explora nuestro catálogo profesional con productos excepcionales de marcas líderes.">
+  <meta property="og:image" content="https://samuelortizospina.me/favicon.ico">
   <meta property="og:url" content="https://samuelortizospina.me/catalog">
   <meta property="og:type" content="website">
-  <!-- Structured Data for SEO -->
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catálogo Profesional de Productos">
+  <meta name="twitter:description" content="Explora nuestro catálogo profesional con productos excepcionales de marcas líderes.">
+  <meta name="twitter:image" content="https://samuelortizospina.me/favicon.ico">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- External Libraries -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/catalog.css">
+  
+  <!-- Structured Data -->
   <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "product",
-        "name": "catalogo",
-        "description": "Últimas noticias de tecnología en Colombia: innovación, gadgets y reseñas con un toque de sakura.",
-        "url": "https://samuelortizospina.me/catalog",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Samuel Ortiz Ospina",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://samuelortizospina.me/logo.png"
-            }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Catálogo Profesional de Productos",
+    "url": "https://samuelortizospina.me/catalog",
+    "description": "Explora nuestro catálogo profesional con productos excepcionales de marcas líderes. Encuentra electrónicos, moda, hogar y más con los mejores precios.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Catálogo Profesional",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://samuelortizospina.me/favicon.ico"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://samuelortizospina.me/catalog?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://samuelortizospina.me/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Catálogo",
+          "item": "https://samuelortizospina.me/catalog"
         }
+      ]
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Catálogo de Productos"
     }
+  }
   </script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background: transparent;
-      color: #FFFFFF;
-      font-family: Arial, sans-serif;
-    }
-
-    canvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      background: #1c0a0a;
-    }
-
-    header {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    nav a {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-family: Troubleside, Arial, sans-serif;
-      font-size: 1.1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-      opacity: 0.8;
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
-      padding: 2.5rem;
-      background: transparent;
-      height: 100vh;
-      overflow-y: auto;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    main.visible {
-      opacity: 1;
-    }
-
-    article p {
-      margin: 1ch;
-      font-size: 0.9rem;
-      color: #FFFFFF;
-    }
-
-    article a {
-      color: #FFFFFF;
-      text-decoration: none;
-    }
-
-    article a:hover {
-      text-decoration: underline;
-      opacity: 0.8;
-    }
-
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.7);
-      color: #FFFFFF;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-    }
-
-    @layer base, tokens, animations, components, utilities;
-
-    @layer tokens {
-      @font-face {
-        font-family: Troubleside;
-        src: url("https://cdn.jsdelivr.net/gh/chytanka/chytanka.github.io/src/assets/fonts/Troubleside.ttf");
-        font-display: swap;
-      }
-
-      :root {
-        --ratio: 257 / 364;
-        --t: 0.133333334s;
-        --min-card-width: 240px;
-        --accent: #FFFFFF;
-        --text: #FFFFFF;
-        --radius: 0.5rem;
-        color: var(--text);
-        font-size: clamp(0.875rem, 0.8214285714rem + 0.2380952381vw, 1rem);
-        line-height: 1.3;
-      }
-
-      @media (prefers-color-scheme: light) {
-        :root {
-          --accent: #FFFFFF;
-          --text: #FFFFFF;
-        }
-      }
-
-      @property --item-scale {
-        syntax: "<number>";
-        inherits: true;
-        initial-value: 1;
-      }
-
-      @property --item-angle {
-        syntax: "<angle>";
-        inherits: true;
-        initial-value: 0deg;
-      }
-    }
-
-    @layer animations {
-      @keyframes shrink-top {
-        0% {
-          --item-scale: 0.5;
-          --item-angle: -60deg;
-          transform-origin: top;
-        }
-      }
-
-      @keyframes shrink-bottom {
-        0% {
-          --item-scale: 0.5;
-          --item-angle: 60deg;
-          transform-origin: bottom;
-        }
-      }
-    }
-
-    @layer base {
-      body,
-      figure {
-        margin: 0;
-      }
-
-      .image-placeholder {
-        width: 100%;
-        aspect-ratio: var(--ratio);
-        background: transparent;
-        border-radius: var(--radius);
-      }
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-    }
-
-    @layer components {
-      h1, h2 {
-        color: #FFFFFF;
-        font-family: Troubleside, Arial, sans-serif;
-        margin: 1rem 0 0;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-      }
-
-      section {
-        margin-bottom: 2.5rem;
-        position: relative;
-        perspective: 4000px;
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: repeat(auto-fill, minmax(var(--min-card-width), 1fr));
-      }
-
-      section header {
-        grid-column: 1 / -1;
-      }
-
-      article {
-        --deg: 0.8deg;
-        --y: 0;
-        background: transparent;
-        opacity: min(var(--item-scale), 0.8);
-        transform: rotate(var(--deg)) translateY(var(--y)) scale(var(--item-scale)) rotateX(var(--item-angle));
-        transition: all var(--t) ease-in-out;
-        will-change: transform;
-        transform-style: preserve-3d;
-      }
-
-      article:hover {
-        --deg: 0 !important;
-        --y: -1.25ch;
-        opacity: 1;
-      }
-
-      @supports (animation-timeline: view()) {
-        article {
-          animation: shrink-top both ease-in-out, shrink-bottom both ease-in-out reverse;
-          animation-timeline: view(block);
-          animation-range: entry, exit;
-        }
-      }
-
-      figure .image-placeholder {
-        aspect-ratio: var(--ratio);
-      }
-
-      figure img {
-        aspect-ratio: var(--ratio);
-        object-fit: cover;
-        border-radius: calc(var(--radius) - 0.25rem);
-      }
-
-      figure figcaption {
-        font-family: Troubleside, Arial, sans-serif;
-        margin: 1ch;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        overflow: hidden;
-        word-break: break-word;
-        line-height: 1;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        color: #FFFFFF;
-      }
-
-      .portfolio-item .portfolio-link {
-        display: inline-block;
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #FFFFFF;
-        padding: 0.5rem 1rem;
-        border: 2px solid #FFFFFF;
-        border-radius: 0.5rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      .portfolio-item .portfolio-link:hover {
-        background-color: #FFFFFF;
-        color: #1c0a0a;
-        text-decoration: none;
-        opacity: 1;
-      }
-    }
-
-    @layer utilities {
-      article:nth-child(2n) { --deg: -0.8deg; }
-      article:nth-child(2n + 1) { --deg: -0.6deg; }
-      article:nth-child(3n) { --deg: 0.6deg; }
-      article:nth-child(4n + 2) { --deg: -0.75deg; }
-      article:nth-child(5n) { --deg: 0.25deg; }
-      article:nth-child(6n + 3) { --deg: -0.3deg; }
-      article:nth-child(7n) { --deg: 0.9deg; }
-    }
-  </style>
 </head>
-<body itemscope itemtype="https://schema.org/Blog" itemid="https://samuelortizospina.me/blog">
-  <meta itemprop="name" content="Noticias de Tecnología en Colombia">
-  <meta itemprop="description" content="Explora las últimas noticias tecnológicas en Colombia con un diseño inspirado en sakura.">
-  <meta itemprop="url" content="https://samuelortizospina.me/blog">
+<body itemscope itemtype="https://schema.org/WebPage">
+  <meta itemprop="name" content="Catálogo Profesional de Productos">
+  <meta itemprop="description" content="Explora nuestro catálogo profesional con productos excepcionales de marcas líderes. Encuentra electrónicos, moda, hogar y más con los mejores precios.">
+  <meta itemprop="url" content="https://samuelortizospina.me/catalog">
   <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-    <meta itemprop="name" content="Samuel Ortiz Ospina">
-    <meta itemprop="logo" content="https://samuelortizospina.me/logo.png">
+    <meta itemprop="name" content="Catálogo Profesional">
+    <meta itemprop="logo" content="https://samuelortizospina.me/favicon.ico">
   </div>
-  <canvas id="sakuraCanvas"></canvas>
-  <header>
-    <h1>Blog sakura</h1>
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="#portfolio-catalogo" id="nav-portfolio">Portafolio y Catálogo</a></li>
-      </ul>
+  
+  <!-- Animación inicial -->
+  <section aria-label="Animación de bienvenida" role="banner">
+    <svg class="main-animation" viewBox="0 0 1280 720" aria-hidden="true">
+      <mask id="maskLeft">
+        <rect x="-50%" width="100%" height="100%" fill="#fff"/>
+      </mask>
+      <mask id="maskRight">
+        <rect x="50%" width="100%" height="100%" fill="#fff"/>
+      </mask>
+      <g font-size="100">
+        <g mask="url(#maskLeft)" fill="#fff" class="left">
+          <text y="120">SECCIÓN DE</text>
+          <text y="250">CATÁLOGO</text>
+          <text y="380">PRODUCTOS</text>
+        </g>
+        <g mask="url(#maskRight)" fill="#aaa" class="right">
+          <text y="120">SECCIÓN DE</text>
+          <text y="250">CATÁLOGO</text>
+          <text y="380">PRODUCTOS</text>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <!-- Catálogo de productos -->
+  <div class="catalog-container" id="main-content" itemprop="mainEntity" itemscope itemtype="https://schema.org/ItemList">
+    <meta itemprop="name" content="Catálogo de Productos">
+    
+    <!-- Breadcrumbs for SEO -->
+    <nav aria-label="Breadcrumb" class="breadcrumb" itemprop="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <ol class="breadcrumb-list" itemprop="itemListElement">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="index.html" aria-label="Ir a inicio" itemprop="item">
+            <span itemprop="name">Inicio</span>
+          </a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Catálogo</span>
+          <meta itemprop="item" content="https://samuelortizospina.me/catalog">
+          <meta itemprop="position" content="2">
+        </li>
+      </ol>
     </nav>
-  </header>
-  <main>
-    <section id="portfolio-catalogo" itemscope itemtype="https://schema.org/Blog">
-      <header>
-        <h2>Portafolio y Catálogo</h2>
-      </header>
-      <article class="portfolio-item" itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <div class="image-placeholder"></div>
-          <figcaption itemprop="headline">Proyectos tecnológicos</figcaption>
-        </figure>
-        <p itemprop="description">Explora nuestro portafolio de proyectos tecnológicos y catálogo de servicios.</p>
-        <meta itemprop="datePublished" content="2025-05-27T17:35:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="index.html" id="article-link-10" class="portfolio-link" itemprop="url">Ver más</a>
-      </article>
-      <article class="portfolio-item" itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <div class="image-placeholder"></div>
-          <figcaption itemprop="headline">Catálogo de productos</figcaption>
-        </figure>
-        <p itemprop="description">Descubre nuestro catálogo de gadgets y soluciones tecnológicas.</p>
-        <meta itemprop="datePublished" content="2025-05-27T17:35:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="catalog.html" id="article-link-11" class="portfolio-link" itemprop="url">Ver más</a>
-      </article>
+
+    <!-- Header del catálogo -->
+    <header class="catalog-header">
+      <div class="header-content">
+        <div class="header-left">
+          <h1 class="catalog-title" itemprop="name">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            Catálogo Profesional
+          </h1>
+          <p class="catalog-subtitle" itemprop="description">Descubre productos excepcionales de marcas líderes</p>
+        </div>
+        
+        <div class="header-right">
+          <button id="search-toggle-btn" class="icon-btn mobile-only" aria-label="Abrir búsqueda de productos">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </button>
+          
+          <button id="cart-toggle-btn" class="cart-btn" aria-label="Ver carrito de compras">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z"></path>
+              <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z"></path>
+              <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6"></path>
+            </svg>
+            <span id="cart-count" class="cart-count" aria-live="polite">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Slider de productos destacados -->
+    <section class="featured-slider" aria-label="Productos destacados" itemprop="itemListElement">
+      <div class="slider-container">
+        <h2 class="sr-only" itemprop="name">Productos Destacados</h2>
+        <div class="swiper featured-swiper">
+          <div class="swiper-wrapper">
+            <!-- Template for dynamically generated slides -->
+            <!--
+            <div class="swiper-slide" itemscope itemtype="https://schema.org/Product">
+              <a href="[product-url]" itemprop="url">
+                <img src="[product-image]" alt="[product-name]" loading="lazy" itemprop="image">
+                <h3 itemprop="name">[Product Name]</h3>
+              </a>
+              <p itemprop="description">[Product Description]</p>
+              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="COP">
+                <meta itemprop="price" content="[product-price]">
+                <meta itemprop="availability" content="https://schema.org/InStock">
+                <meta itemprop="url" content="[product-url]">
+                <meta itemprop="seller" content="Amazon">
+              </div>
+              <meta itemprop="sku" content="[product-sku]">
+              <div itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+                <meta itemprop="name" content="[product-brand]">
+              </div>
+              <button class="add-to-cart-btn" data-id="[product-id]" aria-label="Añadir [product-name] al carrito">Añadir al carrito</button>
+            </div>
+            -->
+          </div>
+          <div class="swiper-pagination"></div>
+          <button id="swiper-next-btn" class="swiper-button-next" aria-label="Siguiente producto destacado"></button>
+          <button id="swiper-prev-btn" class="swiper-button-prev" aria-label="Producto destacado anterior"></button>
+        </div>
+      </div>
     </section>
-    <section id="technology" itemscope itemtype="https://schema.org/Blog">
-      <header>
-        <h2>Tecnología</h2>
-      </header>
-       <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias1.jpg" alt="Inteligencia artificial en Colombia" loading="lazy">
-          <figcaption itemprop="headline">IA en Colombia: Nuevas oportunidades</figcaption>
-        </figure>
-        <p itemprop="description">Explora cómo la inteligencia artificial está transformando industrias en Colombia en 2025.</p>
-        <meta itemprop="datePublished" content="2025-05-27T17:35:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://tecnnova.org/la-inteligencia-artificial-en-colombia/" id="article-link-1" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias2.webp" alt="Nuevos gadgets en Colombia" loading="lazy">
-          <figcaption itemprop="headline">Nuevos gadgets llegan a Colombia</figcaption>
-        </figure>
-        <p itemprop="description">Los últimos dispositivos tecnológicos que se han convertido en objeto de deseo para los colombianos.</p>
-        <meta itemprop="datePublished" content="2025-05-20T09:00:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://www.larepublica.co/internet-economy/los-nuevos-gadgets-que-se-convirtieron-en-objeto-de-deseo-para-los-colombianos-3234495" id="article-link-2" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias3.png" alt="Tecnología 5G en Colombia" loading="lazy">
-          <figcaption itemprop="headline">5G se expande en Colombia</figcaption>
-        </figure>
-        <p itemprop="description">El despliegue de 5G promete revolucionar la conectividad en el país.</p>
-        <meta itemprop="datePublished" content="2025-05-15T14:30:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://linktic.com/blog/tecnologia-5g-en-que-esta-colombia-realmente/" id="article-link-3" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias4.jpeg" alt="Realidad aumentada en educación" loading="lazy">
-          <figcaption itemprop="headline">Realidad aumentada en educación</figcaption>
-        </figure>
-        <p itemprop="description">Cómo la AR está transformando la educación con aplicaciones prácticas.</p>
-        <meta itemprop="datePublished" content="2025-05-10T11:15:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="http://immune.institute/blog/realidad-aumentada-en-educacion-aplicaciones-practicas/" id="article-link-4" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias5.webp" alt="Tendencias en ciberseguridad" loading="lazy">
-          <figcaption itemprop="headline">Avances en ciberseguridad</figcaption>
-        </figure>
-        <p itemprop="description">Tendencias recientes para proteger datos en Colombia.</p>
-        <meta itemprop="datePublished" content="2025-05-05T08:45:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://a3sec.com/blog/tendencias-ciberseguridad-2024" id="article-link-5" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias6.webp" alt="Tecnología verde" loading="lazy">
-          <figcaption itemprop="headline">Tecnología verde en auge</figcaption>
-        </figure>
-        <p itemprop="description">Soluciones sostenibles impulsan la tecnología en Colombia.</p>
-        <meta itemprop="datePublished" content="2025-05-01T13:20:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://smowl.net/es/blog/tecnologia-verde/" id="article-link-6" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
+
+    <!-- Controles y filtros usando HTML5 form -->
+    <section class="controls-section" aria-label="Filtros y búsqueda">
+      <div class="controls-container">
+        <form id="filters-form" class="filters-form" novalidate role="search">
+          <div class="search-container">
+            <div class="search-input-wrapper">
+              <label for="search-input" class="sr-only">Buscar productos</label>
+              <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <input 
+                type="search" 
+                id="search-input" 
+                name="search"
+                placeholder="Buscar productos, marcas o categorías..."
+                aria-label="Buscar productos"
+                autocomplete="off"
+                spellcheck="false"
+                autocapitalize="none"
+              >
+              <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="Limpiar búsqueda" hidden>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="filters-container" role="group" aria-label="Filtros de productos">
+            <div class="filter-group">
+              <label for="category-select" class="filter-label">Categoría</label>
+              <select id="category-select" name="category" class="filter-select" aria-describedby="category-help">
+                <option value="">Todas las categorías</option>
+                <option value="electronics">Electrónicos</option>
+                <option value="clothing">Ropa y Moda</option>
+                <option value="home">Hogar y Jardín</option>
+                <option value="books">Libros y Medios</option>
+                <option value="sports">Deportes</option>
+              </select>
+              <div id="category-help" class="sr-only">Filtrar productos por categoría</div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">
+                Precio: <span id="price-display">COP 0 - 12,000,000</span>
+              </label>
+              <div class="price-range-container">
+                <label for="price-min" class="sr-only">Precio mínimo</label>
+                <input 
+                  type="range" 
+                  id="price-min" 
+                  name="priceMin"
+                  min="0" 
+                  max="12000000" 
+                  value="0" 
+                  step="10000"
+                  class="price-slider"
+                  aria-label="Precio mínimo"
+                >
+                <label for="price-max" class="sr-only">Precio máximo</label>
+                <input 
+                  type="range" 
+                  id="price-max" 
+                  name="priceMax"
+                  min="0" 
+                  max="12000000" 
+                  value="12000000" 
+                  step="10000"
+                  class="price-slider"
+                  aria-label="Precio máximo"
+                >
+              </div>
+              <div class="price-inputs">
+                <input type="number" id="price-min-input" min="0" max="12000000" value="0" placeholder="Min" aria-label="Precio mínimo">
+                <span>-</span>
+                <input type="number" id="price-max-input" min="0" max="12000000" value="12000000" placeholder="Max" aria-label="Precio máximo">
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label for="sort-select" class="filter-label">Ordenar por</label>
+              <select id="sort-select" name="sort" class="filter-select" aria-describedby="sort-help">
+                <option value="featured">Destacados</option>
+                <option value="price-low">Precio: Menor a Mayor</option>
+                <option value="price-high">Precio: Mayor a Menor</option>
+                <option value="rating">Mejor Valorados</option>
+                <option value="newest">Más Recientes</option>
+              </select>
+              <div id="sort-help" class="sr-only">Ordenar productos por criterio seleccionado</div>
+            </div>
+
+            <div class="form-actions">
+              <button type="reset" id="clear-filters-btn" class="clear-filters-btn" aria-label="Limpiar todos los filtros">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                Limpiar filtros
+              </button>
+              
+              <button type="submit" id="apply-filters-btn" class="apply-filters-btn" aria-label="Aplicar filtros">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                </svg>
+                Aplicar
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="view-controls">
+          <div class="results-info">
+            <span id="results-count" aria-live="polite">Cargando productos...</span>
+          </div>
+          
+          <fieldset class="view-toggle" aria-label="Cambiar vista de productos">
+            <legend class="sr-only">Tipo de vista</legend>
+            <input type="radio" id="grid-view-radio" name="view" value="grid" checked>
+            <label for="grid-view-radio" class="view-btn" aria-label="Vista en cuadrícula">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </label>
+            
+            <input type="radio" id="list-view-radio" name="view" value="list">
+            <label for="list-view-radio" class="view-btn" aria-label="Vista en lista">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </label>
+          </fieldset>
+        </div>
+      </div>
     </section>
-    <section id="video-games" itemscope itemtype="https://schema.org/Blog">
-      <header>
-        <h2>Videojuegos</h2>
-      </header>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias7.jpg" alt="Historia de videojuegos en Colombia" loading="lazy">
-          <figcaption itemprop="headline">Escena de videojuegos en Colombia</figcaption>
-        </figure>
-        <p itemprop="description">Un recorrido por la historia y evolución de los videojuegos en Colombia.</p>
-        <meta itemprop="datePublished" content="2025-05-25T10:00:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://www.biblored.gov.co/noticias/video-juegos-colombia-efemerides-biblored" id="article-link-7" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias8.webp" alt="Videojuegos colombianos nominados" loading="lazy">
-          <figcaption itemprop="headline">Indie games colombianos</figcaption>
-        </figure>
-        <p itemprop="description">Videojuegos colombianos nominados en los Game Connection Awards.</p>
-        <meta itemprop="datePublished" content="2025-05-18T14:30:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://www.elcolombiano.com/tecnologia/videojuegos/videojuegos-colombianos-nominados-game-connection-game-development-awards-AM23857531" id="article-link-8" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias9.png" alt="Gafas VR Meta Quest 3S" loading="lazy">
-          <figcaption itemprop="headline">VR Gaming en Colombia</figcaption>
-        </figure>
-        <p itemprop="description">Explora las nuevas gafas VR Meta Quest 3S disponibles en Colombia.</p>
-        <meta itemprop="datePublished" content="2025-05-12T09:15:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://speedlogic.com.co/tienda/accesorios-externos/gafas-vr-meta-quest-3s-128gb-juego-incluido/" id="article-link-9" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias10.webp" alt="Esports en Colombia" loading="lazy">
-          <figcaption itemprop="headline">Esports en Colombia</figcaption>
-        </figure>
-        <p itemprop="description">El impacto de los esports en Colombia y su reconocimiento legal.</p>
-        <meta itemprop="datePublished" content="2025-05-08T16:45:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://www.elcolombiano.com/tecnologia/videojuegos/videojuegos-esports-colombia-deporte-ley-2025-EH27028972" id="article-link-10" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias11.webp" alt="Juegos de mundo abierto" loading="lazy">
-          <figcaption itemprop="headline">Juegos de mundo abierto</figcaption>
-        </figure>
-        <p itemprop="description">Los mejores juegos de mundo abierto para disfrutar en 2025.</p>
-        <meta itemprop="datePublished" content="2025-05-03T12:00:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://www.vidaextra.com/listas/mejores-videojuegos-mundo-abierto" id="article-link-11" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <img src="assets/images/noticias12.jpg" alt="Juegos retro de los 90" loading="lazy">
-          <figcaption itemprop="headline">Revival de juegos retro</figcaption>
-        </figure>
-        <p itemprop="description">Por qué los juegos de los 90 están regresando con fuerza.</p>
-        <meta itemprop="datePublished" content="2025-04-28T15:30:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://elchapuzasinformatico.com/2024/07/retro-revival-por-que-vuelven-los-juegos-de-los-90/" id="article-link-12" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-    </section>
-    <section id="upcoming" itemscope itemtype="https://schema.org/Blog">
-      <header>
-        <h2>Próximos</h2>
-      </header>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <div class="image-placeholder"></div>
-          <figcaption itemprop="headline">Futuro tecnológico en 2026</figcaption>
-        </figure>
-        <p itemprop="description">Predicciones sobre tecnología en Colombia para el próximo año.</p>
-        <meta itemprop="datePublished" content="2025-06-01T10:00:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://www.elcolombiano.com/tecnologia/futuro-tecnologico-2026" id="article-link-13" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <div class="image-placeholder"></div>
-          <figcaption itemprop="headline">Asistentes IA en 2026</figcaption>
-        </figure>
-        <p itemprop="description">Cómo evolucionarán los asistentes de IA en Colombia.</p>
-        <meta itemprop="datePublished" content="2025-06-05T14:00:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://www.eltiempo.com/tecnologia/asistentes-ia-colombia-2026" id="article-link-14" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-      <article itemscope itemtype="https://schema.org/BlogPosting">
-        <figure>
-          <div class="image-placeholder"></div>
-          <figcaption itemprop="headline">Innovaciones tech en 2026</figcaption>
-        </figure>
-        <p itemprop="description">Qué esperar de las innovaciones tecnológicas en Colombia.</p>
-        <meta itemprop="datePublished" content="2025-06-10T09:30:00-05:00">
-        <meta itemprop="author" content="Samuel Ortiz Ospina">
-        <meta itemprop="publisher" content="Samuel Ortiz Ospina">
-        <a href="https://www.semana.com/tecnologia/innovaciones-tech-colombia-2026" id="article-link-15" itemprop="url" target="_blank" rel="noopener">Leer más</a>
-      </article>
-    </section>
+
+    <!-- Estado de carga con progress -->
+    <div id="loading-state" class="loading-state" aria-live="polite">
+      <progress class="loading-progress" aria-label="Cargando productos"></progress>
+      <p>Cargando productos...</p>
+    </div>
+
+    <!-- Contenedor de productos -->
+    <main class="products-section" itemprop="itemListElement">
+      <div id="products-container" class="products-grid" role="main" aria-label="Lista de productos">
+        <!-- Template for dynamically generated products -->
+        <!--
+        <article class="product-card" itemscope itemtype="https://schema.org/Product">
+          <a href="[product-url]" itemprop="url" target="_blank" rel="noopener">
+            <img src="[product-image]" alt="[product-name]" loading="lazy" itemprop="image">
+            <h3 itemprop="name">[Product Name]</h3>
+          </a>
+          <p itemprop="description">[Product Description]</p>
+          <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="COP">
+            <meta itemprop="price" content="[product-price]">
+            <meta itemprop="availability" content="https://schema.org/InStock">
+            <meta itemprop="url" content="[product-url]">
+            <meta itemprop="seller" content="Amazon">
+          </div>
+          <meta itemprop="sku" content="[product-sku]">
+          <div itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+            <meta itemprop="name" content="[product-brand]">
+          </div>
+          <button class="add-to-cart-btn" data-id="[product-id]" aria-label="Añadir [product-name] al carrito">Añadir al carrito</button>
+        </article>
+        -->
+      </div>
+
+      <!-- Estado vacío -->
+      <div id="empty-state" class="empty-state">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <h3>No se encontraron productos</h3>
+        <p>Intenta ajustar tus filtros de búsqueda o explora diferentes categorías.</p>
+        <button id="filter-reset-btn" class="btn btn-primary">Restablecer filtros</button>
+      </div>
     </main>
-  <footer>
-    <p>© 2025 Samuel Ortiz Ospina. Todos los derechos reservados.</p>
-  </footer>
-  <script type="module">
-    import * as THREE from "https://esm.sh/three@0.174.0";
-    import { OrbitControls } from "https://esm.sh/three@0.174.0/addons/controls/OrbitControls.js";
-    import { GLTFLoader } from "https://esm.sh/three@0.174.0/examples/jsm/loaders/GLTFLoader.js";
-    import { DRACOLoader } from "https://esm.sh/three@0.174.0/examples/jsm/loaders/DRACOLoader.js";
-    import { RGBELoader } from "https://esm.sh/three@0.174.0/examples/jsm/loaders/RGBELoader.js";
 
-    // Scene setup
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1c0a0a);
+    <!-- Modal del carrito usando dialog HTML5 -->
+    <dialog id="cart-modal" class="cart-dialog" aria-labelledby="cart-title">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="cart-title">Carrito de Compras</h2>
+          <button id="cart-close-btn" class="modal-close" aria-label="Cerrar carrito" autofocus>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <div id="cart-items" class="cart-items">
+            <!-- Template for dynamically generated cart items -->
+            <!--
+            <div class="cart-item" itemscope itemtype="https://schema.org/Product">
+              <img src="[product-image]" alt="[product-name]" itemprop="image">
+              <div class="cart-item-details">
+                <h3 itemprop="name">[Product Name]</h3>
+                <p>Precio: <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <meta itemprop="priceCurrency" content="COP">
+                  <span itemprop="price">[product-price]</span>
+                </span></p>
+                <p>Cantidad: <input type="number" value="[quantity]" min="1" aria-label="Cantidad de [product-name]"></p>
+                <button class="remove-cart-item" data-id="[product-id]" aria-label="Eliminar [product-name] del carrito">Eliminar</button>
+              </div>
+              <meta itemprop="sku" content="[product-sku]">
+              <div itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+                <meta itemprop="name" content="[product-brand]">
+              </div>
+            </div>
+            -->
+          </div>
+          
+          <div class="cart-empty">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <h3>Tu carrito está vacío</h3>
+            <p>Agrega algunos productos para comenzar tu compra.</p>
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <div class="cart-total-section">
+            <div class="cart-total-label">Total estimado:</div>
+            <div id="cart-total" class="cart-total-amount" aria-live="polite">COP 0</div>
+          </div>
+          <p class="cart-disclaimer">
+            Los precios y disponibilidad pueden variar en las tiendas asociadas.
+          </p>
+        </div>
+      </div>
+    </dialog>
+  </div>
 
-    const camera = new THREE.PerspectiveCamera(
-      55,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.getElementById('sakuraCanvas') });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 3.0;
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-    // OrbitControls
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.enableZoom = false;
-    controls.minPolarAngle = Math.PI / 4;
-    controls.maxPolarAngle = 3 * Math.PI / 4;
-
-    // IntersectionObserver for blog visibility
-    const blog = document.querySelector('main');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          blog.classList.add('visible');
-        } else {
-          blog.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    observer.observe(blog);
-
-    // Draco Loader setup
-    const dracoLoader = new DRACOLoader();
-    dracoLoader.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5.6/");
-    const gltfLoader = new GLTFLoader();
-    gltfLoader.setDRACOLoader(dracoLoader);
-
-    function createSakuraTexture() {
-      const canvas = document.createElement("canvas");
-      canvas.width = 128;
-      canvas.height = 128;
-      const ctx = canvas.getContext("2d");
-
-      const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
-      gradient.addColorStop(0, "#A80086");
-      gradient.addColorStop(0.4, "#B9707B");
-
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, 128, 128);
-      const texture = new THREE.CanvasTexture(canvas);
-      texture.needsUpdate = true;
-      return texture;
-    }
-
-    // Fallback scene
-    function createFallbackScene() {
-      console.log("Creating fallback scene...");
-      const geometry = new THREE.SphereGeometry(5, 32, 32);
-      const material = new THREE.MeshBasicMaterial({ color: 0xff00ff });
-      const sphere = new THREE.Mesh(geometry, material);
-      scene.add(sphere);
-    }
-
-    // Load HDRI
-    const rgbeLoader = new RGBELoader();
-    rgbeLoader.setPath("https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/");
-    rgbeLoader.load("pink_sunrise_1k.hdr", function (texture) {
-      texture.mapping = THREE.EquirectangularReflectionMapping;
-      scene.environment = texture;
-      console.log("HDRI loaded at", new Date().toISOString());
-    }, undefined, function (error) {
-      console.error("Error loading HDRI:", error);
-      createFallbackScene();
-    });
-
-    // Store sakura instances
-    let sakuraInstances = null;
-    let treeModel = null;
-    const rotationSpeeds = [];
-    const floatingSakura = [];
-    const FLOAT_SPEED = 0.02;
-    const FADE_SPEED = 0.02;
-    const REGENERATE_INTERVAL = 600;
-    let lastRegenerateTime = 0;
-    let modelBounds = null;
-    let hitareaPositions = null;
-    let modelCenter = new THREE.Vector3();
-
-    // Load Bonsai model
-    gltfLoader.load("https://assets.codepen.io/262181/bonsai2.glb", (gltf) => {
-      console.log("Model loaded at", new Date().toISOString());
-      const numSakuras = 500;
-      treeModel = gltf.scene;
-      treeModel.scale.set(0.7, 0.7, 0.7);
-      scene.add(treeModel);
-
-      // Calculate bounds and center
-      const box = new THREE.Box3().setFromObject(treeModel);
-      modelBounds = { min: box.min, max: box.max };
-      box.getCenter(modelCenter);
-
-      // Set static camera and controls
-      controls.target.copy(modelCenter);
-      camera.position.set(modelCenter.x, modelCenter.y, modelCenter.z + 15);
-
-      let hitareaMesh = null;
-      let sakuraMesh = null;
-
-      // Traverse and hide text
-      treeModel.traverse((child) => {
-        if (child.isMesh) {
-          if (child.name.toLowerCase().includes("text") || 
-              child.name.toLowerCase().includes("label") || 
-              child.name.toLowerCase().includes("japanese")) {
-            child.visible = false;
-          }
-          if (child.name === "hitarea") {
-            hitareaMesh = child;
-            child.visible = false;
-            hitareaPositions = hitareaMesh.geometry.attributes.position.array;
-          }
-          if (child.name === "sakura") {
-            sakuraMesh = child;
-            child.visible = false;
-          }
-          if (child.name !== "hitarea" && child.name !== "sakura" && 
-              !child.name.toLowerCase().includes("text") && 
-              !child.name.toLowerCase().includes("label") && 
-              !child.name.toLowerCase().includes("japanese")) {
-            const material = child.material;
-            if (material) {
-              const originalColor = material.color.clone();
-              const newMaterial = material.clone();
-              newMaterial.color = originalColor;
-              newMaterial.metalness = 0.8;
-              newMaterial.roughness = 0.32;
-              newMaterial.transparent = true;
-              newMaterial.opacity = 1.0;
-              child.material = newMaterial;
-            }
-          }
-          if (child.name === "tree") {
-            const material = child.material;
-            if (material) {
-              const newMaterial = material.clone();
-              newMaterial.color = new THREE.Color(0x1c0a0a);
-              newMaterial.metalness = 0.4;
-              newMaterial.roughness = 0.4;
-              newMaterial.transparent = true;
-              newMaterial.opacity = 1.0;
-              child.material = newMaterial;
-            }
-          }
-        }
-      });
-
-      if (sakuraMesh) {
-        const sakuraTexture = createSakuraTexture();
-        const sakuraMaterial = new THREE.MeshStandardMaterial({
-          map: sakuraTexture,
-          emissive: new THREE.Color(0xa80086),
-          emissiveMap: sakuraTexture,
-          emissiveIntensity: 1,
-          transparent: true,
-          opacity: 0.95,
-          side: THREE.DoubleSide
-        });
-
-        const hitareaGeometry = hitareaMesh.geometry;
-        const positions = hitareaGeometry.attributes.position.array;
-        const normals = hitareaGeometry.attributes.normal.array;
-        const indices = hitareaGeometry.index ? hitareaGeometry.index.array : null;
-
-        sakuraInstances = new THREE.InstancedMesh(
-          sakuraMesh.geometry,
-          sakuraMaterial,
-          numSakuras
-        );
-
-        const matrix = new THREE.Matrix4();
-        const position = new THREE.Vector3();
-        const normal = new THREE.Vector3();
-        const quaternion = new THREE.Quaternion();
-
-        for (let i = 0; i < numSakuras; i++) {
-          let vertexIndex;
-          if (indices) {
-            const triangleIndex = Math.floor(Math.random() * (indices.length / 3)) * 3;
-            const v1 = new THREE.Vector3(
-              positions[indices[triangleIndex] * 3],
-              positions[indices[triangleIndex] * 3 + 1],
-              positions[indices[triangleIndex] * 3 + 2]
-            );
-            const v2 = new THREE.Vector3(
-              positions[indices[triangleIndex + 1] * 3],
-              positions[indices[triangleIndex + 1] * 3 + 1],
-              positions[indices[triangleIndex + 1] * 3 + 2]
-            );
-            const v3 = new THREE.Vector3(
-              positions[indices[triangleIndex + 2] * 3],
-              positions[indices[triangleIndex + 2] * 3 + 1],
-              positions[indices[triangleIndex + 2] * 3 + 2]
-            );
-
-            const r1 = Math.random();
-            const r2 = Math.random();
-            const r3 = 1 - r1 - r2;
-
-            position.copy(v1).multiplyScalar(r1).add(v2.clone().multiplyScalar(r2)).add(v3.clone().multiplyScalar(r3));
-            normal.crossVectors(v2.clone().sub(v1), v3.clone().sub(v1)).normalize();
-            position.add(normal.clone().multiplyScalar(Math.random() * 0.1));
-          } else {
-            vertexIndex = Math.floor(Math.random() * (positions.length / 3)) * 3;
-            position.set(
-              positions[vertexIndex],
-              positions[vertexIndex + 1],
-              positions[vertexIndex + 2]
-            );
-            normal.set(
-              normals[vertexIndex],
-              normals[vertexIndex + 1],
-              normals[vertexIndex + 2]
-            );
-            position.add(normal.clone().multiplyScalar(Math.random() * 0.1));
-          }
-
-          quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), normal);
-          const xRotation = ((Math.random() - 0.5) * Math.PI) / 3;
-          const zRotation = ((Math.random() - 0.5) * Math.PI) / 3;
-          const xQuat = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), xRotation);
-          const zQuat = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), zRotation);
-          const yQuat = new THREE.Quaternion().setFromEuler(new THREE.Euler(0, Math.random() * Math.PI * 2, 0));
-          quaternion.multiply(xQuat).multiply(zQuat).multiply(yQuat);
-
-          const scale = 1.4 + Math.random() * 1.0;
-          matrix.compose(position, quaternion, new THREE.Vector3(scale, scale, scale));
-          sakuraInstances.setMatrixAt(i, matrix);
-
-          rotationSpeeds[i] = (Math.random() * 0.5 + 0.1) * 0.01;
-          floatingSakura[i] = {
-            isFloating: false,
-            opacity: 0.9,
-            originalPosition: position.clone(),
-            floatOffset: new THREE.Vector3((Math.random() - 0.5) * 0.1, 0, (Math.random() - 0.5) * 0.1),
-            floatSpeed: FLOAT_SPEED * (0.5 + Math.random() * 0.5),
-            currentScale: 0,
-            targetScale: 0.5 + Math.random() * 0.5,
-            scaleSpeed: 0.05,
-            noiseOffset: Math.random() * 1000,
-            noiseScale: 0.2 + Math.random() * 0.3,
-            swayAmount: 0.005 + Math.random() * 0.01,
-            swaySpeed: 0.3 + Math.random() * 0.7,
-            rotationSpeed: (Math.random() * 0.5 + 0.1) * 0.01 * (3 + Math.random() * 2)
-          };
-        }
-
-        sakuraInstances.instanceMatrix.needsUpdate = true;
-        scene.add(sakuraInstances);
-        console.log("Sakura instances added");
-      } else {
-        console.error("Sakura mesh not found");
-      }
-    }, undefined, function (error) {
-      console.error("Error loading model:", error);
-      createFallbackScene();
-    });
-
-    // Handle window resize
-    window.addEventListener("resize", () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-
-    const matrix = new THREE.Matrix4();
-    const position = new THREE.Vector3();
-    const quaternion = new THREE.Quaternion();
-    const scale = new THREE.Vector3();
-    const rotationMatrix = new THREE.Matrix4();
-    const currentTime = { value: 0 };
-
-    function animate() {
-      requestAnimationFrame(animate);
-      currentTime.value += 15;
-
-      if (sakuraInstances && modelBounds && hitareaPositions) {
-        if (currentTime.value - lastRegenerateTime > REGENERATE_INTERVAL) {
-          const numToFloat = Math.floor(Math.random() * 3) + 1;
-          for (let i = 0; i < numToFloat; i++) {
-            const randomIndex = Math.floor(Math.random() * sakuraInstances.count);
-            if (!floatingSakura[randomIndex].isFloating) {
-              floatingSakura[randomIndex].isFloating = true;
-              floatingSakura[randomIndex].opacity = 0.9;
-            }
-          }
-          lastRegenerateTime = currentTime.value;
-        }
-
-        for (let i = 0; i < sakuraInstances.count; i++) {
-          sakuraInstances.getMatrixAt(i, matrix);
-          matrix.decompose(position, quaternion, scale);
-
-          if (floatingSakura[i].isFloating) {
-            const noiseX = Math.sin(currentTime.value * 0.001 * floatingSakura[i].swaySpeed + floatingSakura[i].noiseOffset) * floatingSakura[i].swayAmount;
-            const noiseZ = Math.cos(currentTime.value * 0.001 * floatingSakura[i].swaySpeed + floatingSakura[i].noiseOffset * 1.5) * floatingSakura[i].swayAmount;
-
-            position.y -= floatingSakura[i].floatSpeed;
-            position.x += noiseX * floatingSakura[i].noiseScale;
-            position.z += noiseZ * floatingSakura[i].noiseScale;
-
-            if (position.y < modelBounds.min.y + 1) {
-              floatingSakura[i].opacity -= FADE_SPEED;
-              if (floatingSakura[i].opacity <= 0) {
-                const vertexIndex = Math.floor(Math.random() * (hitareaPositions.length / 3)) * 3;
-                position.set(
-                  hitareaPositions[vertexIndex],
-                  hitareaPositions[vertexIndex + 1],
-                  hitareaPositions[vertexIndex + 2]
-                );
-                floatingSakura[i].isFloating = false;
-                floatingSakura[i].opacity = 0.9;
-                floatingSakura[i].currentScale = 0;
-                floatingSakura[i].targetScale = 0.5 + Math.random() * 0.5;
-                floatingSakura[i].noiseOffset = Math.random() * 1000;
-                floatingSakura[i].noiseScale = 0.2 + Math.random() * 0.3;
-                floatingSakura[i].swayAmount = 0.005 + Math.random() * 0.01;
-                floatingSakura[i].swaySpeed = 0.3 + Math.random() * 0.7;
-                floatingSakura[i].rotationSpeed = (Math.random() * 0.5 + 0.1) * 0.01 * (3 + Math.random() * 2);
-              }
-            }
-
-            if (!floatingSakura[i].isFloating && floatingSakura[i].currentScale < floatingSakura[i].targetScale) {
-              floatingSakura[i].currentScale += floatingSakura[i].scaleSpeed;
-              if (floatingSakura[i].currentScale > floatingSakura[i].targetScale) {
-                floatingSakura[i].currentScale = floatingSakura[i].targetScale;
-              }
-              scale.set(floatingSakura[i].currentScale, floatingSakura[i].currentScale, floatingSakura[i].currentScale);
-            }
-
-            rotationMatrix.makeRotationY(floatingSakura[i].rotationSpeed * 5);
-          } else {
-            rotationMatrix.makeRotationY(rotationSpeeds[i]);
-          }
-
-          matrix.compose(position, quaternion, scale);
-          matrix.multiply(rotationMatrix);
-          sakuraInstances.setMatrixAt(i, matrix);
-        }
-        sakuraInstances.instanceMatrix.needsUpdate = true;
-      }
-
-      controls.update();
-      renderer.render(scene, camera);
-    }
-
-    console.log("Starting animation at", new Date().toISOString());
-    animate();
-  </script>
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/catalog.js"></script>
 </body>
-</html> para Schema.org
+</html>
